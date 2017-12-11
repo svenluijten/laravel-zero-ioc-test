@@ -12,9 +12,9 @@ class HelloCommandTest extends TestCase
     {
         $mock = $this->createMock(TestService::class);
 
-        app()->instance(TestService::class, $mock);
-
         $mock->expects($this->once())->method('someMethod')->willReturn('from the tests');
+
+        app()->instance(TestService::class, $mock);
 
         $this->app->call('hello');
     }
